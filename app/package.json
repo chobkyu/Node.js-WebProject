@@ -4,7 +4,7 @@
   "description": "node.js로 만드는 웹페이지",
   "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www.js",
+    "start": "nodemon ./bin/www.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "조병규",
