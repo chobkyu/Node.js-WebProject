@@ -1,0 +1,28 @@
+{
+  "name": "toyproject",
+  "version": "1.0.0",
+  "description": "node.js로 만드는 웹페이지",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./bin/www.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "조병규",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1"
+  },
+  "bin": {
+    "toyproject": "app/bin/www.js"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chobkyu/node.js-WebProject.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chobkyu/node.js-WebProject/issues"
+  },
+  "homepage": "https://github.com/chobkyu/node.js-WebProject#readme"
+}
