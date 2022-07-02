@@ -1,22 +1,28 @@
 "use strict"
 
 const id = document.querySelector("#id"),
+    name = document.querySelector("#name"),
     pw =document.querySelector("#passWord"),
-    loginBtn = document.querySelector("#button");
+    pwConfirm =document.querySelector("#confirm-passWord"),
+    registerBtn = document.querySelector("#button");
+    
+registerBtn.addEventListener("click",register);
 
-loginBtn.addEventListener("click",login);
 
-
-function login(){
+function register(){
     const req = {
         id : id.value,
+        name : name.value,
         pw : pw.value,
+        pwConfirm : pwConfirm.value
     };
+
+    console.log(req);
     
     console.log(req);
     console.log(JSON.stringify(req));
 
-    fetch("/login", {
+    fetch("/register", {
         method:"POST",
         headers :{
             "Content-Type" : "application/json",
@@ -26,13 +32,13 @@ function login(){
     .then((res)=>res.json())
     .then((res)=>{
         if (res.success){
-            location.href='/';
+            location.href='/login';
         } else {
             alert(res.msg);
         }
         
     })
     .catch((err)=> {
-        console.log(new Error("로그인 중 에러발생"));
+        console.log(new Error("회원가입 중 에러발생"));
     });
-}
+ }
