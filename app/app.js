@@ -3,6 +3,9 @@
 //모듈
 const express = require('express');//node_modules에 있는 express 관련 파일 가져옴
 const bodyParser= require("body-parser");
+const dotenv = require("dotenv");
+dotenv.config();
+
 const app = express();//express 함수 변환 값 변수에 저장
 
 
