@@ -5,7 +5,12 @@ const ListStorage = require("./listStorage");
 class List{
     async member(){
         const member = await ListStorage.getMemberInfo();
-        return member;
+        try{
+            return member;
+        }catch(err){
+            console.log(err+"aasdfdasf");
+        }
+       
     }
 }
 

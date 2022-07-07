@@ -18,13 +18,17 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
     register : (req,res) => {
         res.render("home/register");
     },
-    list : (req,res) => {
-        const sql = "select * from member";
+    list : async (req,res) => {
+        /*const sql = "select * from member";
         db.query(sql,(err,rows)=>{
             if(err) console.error(err);
             console.log(rows[0].name);
             res.render("home/list",{rows:rows});
-        });
+        });*/
+        const member = new List();
+        const rows = await member.getMemberInfo();
+        console.log(rows+"asfsadfsdafsdaf");
+        res.render("home/list",{rows:rows});
         
     },
 };
