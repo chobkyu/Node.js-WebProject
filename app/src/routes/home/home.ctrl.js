@@ -2,6 +2,11 @@
 
 //const UserStorage = require("../../models/UserStorage");
 const User = require("../../models/User");
+const List = require("../../models/listStorage");
+
+
+//
+const db = require("../../config/db");
 
 const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
     home: (req, res) => {
@@ -14,7 +19,13 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         res.render("home/register");
     },
     list : (req,res) => {
-        res.render("home/list");
+        const sql = "select * from member";
+        db.query(sql,(err,rows)=>{
+            if(err) console.error(err);
+            console.log(rows[0].name);
+            res.render("home/list",{rows:rows});
+        });
+        
     },
 };
 

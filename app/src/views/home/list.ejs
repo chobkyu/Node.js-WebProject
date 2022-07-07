@@ -7,7 +7,11 @@
         <link rel="stylesheet" href="/css/home/list.css">
         <script src="../../models/list.js" ></script>
         <title>list</title>
+        
     </head>
+    <script>
+        console.log(rows);
+    </script>
     <body>
         <div class="table">
             <div class="form">
@@ -19,24 +23,21 @@
                         <th>develop</th>
                     </thead>
                     <tbody>
+                        <%
+                        var i =0;
+                        for(i;i<rows.length; i++)
+                        {
+                            var data = rows[i];
+                        
+                        %>
                         <tr>
-                            <td>1</td>
-                            <td>노예준</td>
-                            <td>0417</td>
-                            <td>건축</td>
+                            <td><%= data.seq %></td>
+                            <td><%= data.name %></td>
+                            <td><%= data.date %></td>
+                            <td><%= data.develop %></td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>안지온</td>
-                            <td>0101</td>
-                            <td>격투기</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>안예온</td>
-                            <td>0102</td>
-                            <td>울기</td>
-                        </tr>
+                        <%}%>
+                        
 
                     </tbody>
 

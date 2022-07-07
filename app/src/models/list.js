@@ -1,5 +1,12 @@
 "use strict";
 
-const db = require("../config/db");
-const table ='member';
+const ListStorage = require("./listStorage");
 
+class List{
+    async member(){
+        const member = await ListStorage.getMemberInfo();
+        return member;
+    }
+}
+
+module.exports = List;
