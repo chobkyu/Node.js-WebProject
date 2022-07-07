@@ -13,6 +13,9 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
     register : (req,res) => {
         res.render("home/register");
     },
+    list : (req,res) => {
+        res.render("home/list");
+    },
 };
 
 const process = {

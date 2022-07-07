@@ -2,12 +2,25 @@
 <html lang ="ko">
     <head>
         <meta charset="UTF-8">
-        <meta name = "viewport" content="width=device-width, initial-scale=1.0">
-        <title>민수야 개발하자</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/home/login.css">
+        <script src="/js/home/index.js" defer></script>
+        <title>Document</title>
     </head>
     <body>
-        <h2>민수야 개발하자</h2>
-        <h2>네 개발하겠습니다</h2>
-        <button onclick="location.href='/login'">로그인페이지</button>
+        <div class="login-page">
+            <div class="form">
+              <form class="login-form">
+                <p id = "login" onclick = "location.href='/login'">login</p>
+                <p id = "regist" onclick = "location.href='/register'">regist</p>
+                <p id = "list" onclick = "location.href='/list'">list</p>
+                <p class="message">Not registered? <a href="/register">Create an account</a></p>
+              </form>
+            </div>
+          </div>
     </body>
 </html>
+
+
+<!--Copyright (c) 2022 by Aigars Silkalns (https://codepen.io/colorlib/pen/rxddKy)-->
