@@ -13,7 +13,7 @@ class ListStorage {
             const query = "SELECT * FROM member;";
             db.query(query, (err, rows)=>{
                 if(err) reject("${err}");
-                console.log(rows+"rrrrr");
+                console.log(rows+" ListStorage에서 에러");
                 resolve(rows);
             });
             

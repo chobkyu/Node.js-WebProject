@@ -8,7 +8,7 @@ class List{
         try{
             return member;
         }catch(err){
-            console.log(err+"aasdfdasf");
+            console.log(err+" list.js에서 에러");
         }
        
     }
