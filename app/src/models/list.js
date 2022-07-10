@@ -1,4 +1,4 @@
-"use strict";
+/*"use strict";
 
 const ListStorage = require("./listStorage");
 
@@ -14,4 +14,4 @@ class List{
     }
 }
 
-module.exports = List;
+module.exports = List;*/

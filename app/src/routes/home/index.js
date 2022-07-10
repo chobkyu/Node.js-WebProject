@@ -15,6 +15,8 @@ router.get("/register" ,ctrl.output.register);
 
 router.get("/list" ,ctrl.output.list);
 
+router.get("/menu", ctrl.output.menu);
+
 router.post('/login',ctrl.process.login);
 
 router.post("/register" ,ctrl.process.register);

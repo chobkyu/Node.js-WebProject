@@ -27,9 +27,12 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         });*/
         const member = new List();
         const rows = await member.getMemberInfo();
-        console.log(rows+"asfsadfsdafsdaf");
+        //console.log(rows+"asfsadfsdafsdaf");
         res.render("home/list",{rows:rows});
         
+    },
+    menu : (req,res)=>{
+        res.render("home/menu");
     },
 };
 
