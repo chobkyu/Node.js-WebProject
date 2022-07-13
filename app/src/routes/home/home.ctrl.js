@@ -40,9 +40,19 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         res.render("home/menu",{rows:rows});
     },
 
-    menuBunsick : (req,res)=>{
-        res.render("home/menu");
-    }
+    menuBunsick : async (req,res)=>{
+        const menu = new Menu();
+        const category ="분식";
+        const rows = await menu.getMenuHan(category);
+        res.render("home/menu",{rows:rows});
+    },
+
+    menuYangsick : async (req,res)=>{
+        const menu = new Menu();
+        const category ="양식";
+        const rows = await menu.getMenuHan(category);
+        res.render("home/menu",{rows:rows});
+    },
 };
 
 const process = {
