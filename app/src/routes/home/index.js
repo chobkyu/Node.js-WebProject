@@ -17,6 +17,8 @@ router.get("/list" ,ctrl.output.list);
 
 router.get("/menu", ctrl.output.menu);
 
+router.get("/menuBunsick", ctrl.output.menuBunsick);
+
 router.post('/login',ctrl.process.login);
 
 router.post("/register" ,ctrl.process.register);

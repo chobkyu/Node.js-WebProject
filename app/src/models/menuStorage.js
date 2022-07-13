@@ -3,8 +3,7 @@
 const db = require("../config/db");
 
 class Menu{
-    getMenuHan(){
-        const category = "한식";
+    getMenuHan(category){
         return new Promise((resolve, reject)=>{
             const query = "select * from menu where category = ?";
             db.query(query,[category],(err, rows)=>{

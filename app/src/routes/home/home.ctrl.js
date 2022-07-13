@@ -34,10 +34,15 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
     },
     menu : async (req,res)=>{
         const menu = new Menu();
-        const rows = await menu.getMenuHan();
+        const category ="한식";
+        const rows = await menu.getMenuHan(category);
         //console.log(rows);
         res.render("home/menu",{rows:rows});
     },
+
+    menuBunsick : (req,res)=>{
+        res.render("home/menu");
+    }
 };
 
 const process = {
