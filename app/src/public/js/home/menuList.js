@@ -4,8 +4,8 @@ function category(menuSelect){
     
     console.log(menuSelect);
     if(menuSelect===""){
-        location.href = "/menu";
+        location.href = "/menu?sel=한식";
     }
     
-    location.href = "/"+menuSelect;
+    location.href = "/menu?sel="+menuSelect;
 }

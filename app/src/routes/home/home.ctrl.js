@@ -33,13 +33,15 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         
     },
     menu : async (req,res)=>{
+        const category = req.query.sel;
+       
         const menu = new Menu();
-        const category ="한식";
-        const rows = await menu.getMenuHan(category);
-        //console.log(rows);
+        
+        const rows = await menu.getMenu(category);
+        console.log(rows);
         res.render("home/menu",{rows:rows});
     },
-
+/*
     menuBunsick : async (req,res)=>{
         const menu = new Menu();
         const category ="분식";
@@ -52,7 +54,7 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         const category ="양식";
         const rows = await menu.getMenuHan(category);
         res.render("home/menu",{rows:rows});
-    },
+    },*/
 };
 
 const process = {
@@ -93,6 +95,8 @@ module.exports = {
     output,
     process,
 };
+
+
 //object에서는 키와 value 값으로 이루어져 있는데 키만 입력하면
 //value값에는 key 값과 동일한 값이 입력됨
 /* 즉 위 object는 밑에와 같음 
