@@ -3,14 +3,32 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <title>menu</title>
     </head>
     <body>
-        <div class='live_broadcast' onclick='gotoBoard()'>
-            <img src=""  >
-            <h1>$name<br>$userId</h1>
             
-        </div>
+            <% 
+                var i = 0; 
+                
+                for(i;i<rows.length; i++)
+                {
+                    
+                    var data = rows[i];
+                    
+                %>
+                <div>
+                    <img src="" >
+                    <h6><%= data.menu%><br><%= data.price %></h6>
+                    
+                </div>   
+                
+            <%}%>
+        
+        <button>한식</button>
+        <button>분식</button>
+        <button>양식</button>
         
 
     </body>

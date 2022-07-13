@@ -3,10 +3,11 @@
 //const UserStorage = require("../../models/UserStorage");
 const User = require("../../models/User");
 const List = require("../../models/listStorage");
-
+const Menu = require("../../models/menuStorage");
 
 //
 const db = require("../../config/db");
+const { getMenuHan } = require("../../models/menuStorage");
 
 const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
     home: (req, res) => {
@@ -27,12 +28,15 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         });*/
         const member = new List();
         const rows = await member.getMemberInfo();
-        //console.log(rows+"asfsadfsdafsdaf");
+        
         res.render("home/list",{rows:rows});
         
     },
-    menu : (req,res)=>{
-        res.render("home/menu");
+    menu : async (req,res)=>{
+        const menu = new Menu();
+        const rows = await menu.getMenuHan();
+        //console.log(rows);
+        res.render("home/menu",{rows:rows});
     },
 };
 
