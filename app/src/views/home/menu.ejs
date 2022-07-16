@@ -22,7 +22,7 @@
                     <img src="" >
                     <h6 id = "menu"><%= data.menu%></h6>
                     <h6 id = "price"><%= data.price %></h6>
-                    <button id = "menuBtn">선택</button>
+                    <button onclick = "menuSel('<%= data.menu%>' , '<%= data.price %>')" id = "menuBtn">선택</button>
                     
                 </div>   
                 
@@ -35,7 +35,7 @@
 
         <br><br>
 
-        <button>결제하기</button>
+        <button id = "pay">결제하기</button>
         
 
     </body>
