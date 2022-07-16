@@ -21,9 +21,21 @@ class ListStorage {
             });
             
         });
-        
+       
+    }
 
-        
+    getSearchMember(key){
+        return new Promise((resolve, reject)=>{
+            const query = "SELECT * FROM member where name = ?";
+            db.query(query,[key],(err,rows)=>{
+                if(err){
+                    reject("${err}");
+                    console.log(rows+" ListStorage의 getSearchMember에서 에러");
+                }
+                
+                resolve(rows);
+            }) 
+        });
     }
 }
 

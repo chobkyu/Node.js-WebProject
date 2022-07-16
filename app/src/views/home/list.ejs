@@ -5,14 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/css/home/list.css">
-        <script src="../../models/list.js" ></script>
         <title>list</title>
         
     </head>
-    <script>
-        console.log(rows);
-    </script>
+
     <body>
+        <input type="text" id="searchKey" value="">
+        <button id="search">검색하기</button>
         <div class="table">
             <div class="form">
                 <table>
@@ -47,4 +46,14 @@
         
     </body>
 
+    <script>
+        const search = document.querySelector('#search');
+
+        search.addEventListener("click",()=>{
+            const searchKey = document.getElementById('searchKey').value;
+
+            console.log(searchKey);
+            location.href = "/list?key="+searchKey; 
+        });
+    </script>
 </html>
