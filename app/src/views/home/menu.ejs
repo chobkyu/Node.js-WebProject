@@ -20,15 +20,22 @@
                 %>
                 <div>
                     <img src="" >
-                    <h6><%= data.menu%><br><%= data.price %></h6>
+                    <h6 id = "menu"><%= data.menu%></h6>
+                    <h6 id = "price"><%= data.price %></h6>
+                    <button id = "menuBtn">선택</button>
                     
                 </div>   
                 
             <%}%>
+            <br>
         
         <button onclick="category('한식')">한식</button>
         <button onclick="category('분식')">분식</button>
         <button onclick="category('양식')">양식</button>
+
+        <br><br>
+
+        <button>결제하기</button>
         
 
     </body>
