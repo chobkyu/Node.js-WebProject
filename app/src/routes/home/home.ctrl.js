@@ -103,6 +103,12 @@ const process = {
         const response = await user.register();
         return res.json(response);
     },
+
+    add : async (req, res) => {
+        const menuAdd = new Menu(req.body);
+        const response = await menuAdd.menu();
+        return res.json(response);
+    }
 };
 
 module.exports = {

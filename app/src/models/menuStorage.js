@@ -3,6 +3,10 @@
 const db = require("../config/db");
 
 class Menu{
+    constructor(body){
+        this.body = body;
+    }
+    
     getMenu(category){
         console.log(category+"는 뭘까요");
         if(category===undefined){
@@ -19,6 +23,21 @@ class Menu{
                 resolve(rows);
             });
         });
+    }
+
+    async menu(){
+        const menuAdd = this.body;
+        try{
+            return new Promise((resolve, reject) => {
+                const query = "insert into menu(menu,price,category) values(?,?,?);";
+                db.query(query,[menuAdd.menu,menuAdd.price,menuAdd.category], (err) =>{
+                    if(err) reject("${err}");
+                    resolve({success : true});
+                })
+            });
+        }catch (err) {
+            return {success : false, msg : err};
+        }
     }
 }
 

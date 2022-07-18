@@ -27,4 +27,7 @@ router.post('/login',ctrl.process.login);
 //회원가입 post
 router.post("/register" ,ctrl.process.register);
 
+//메뉴등록 post
+router.post("/add" , ctrl.process.add);
+
 module.exports=router;
