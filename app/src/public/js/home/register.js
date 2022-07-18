@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 const id = document.querySelector("#id"),
     name = document.querySelector("#name"),
