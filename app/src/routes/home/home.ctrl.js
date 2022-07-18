@@ -30,14 +30,11 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         const key = req.query.key;
         console.log(key);
         if(key===undefined){
-            console.log('키가 널');
             const rows = await member.getMemberInfo();
         
             res.render("home/list",{rows:rows});
         }
         else{
-            console.log('키가 널이 아님');
-          
             const searchRow = await member.getSearchMember(key);
             res.render("home/list",{rows:searchRow});
         }
@@ -54,6 +51,10 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         console.log(rows);
         res.render("home/menu",{rows:rows});
     },
+
+    add : (req, res) => {
+        res.render("home/add");
+    }
 /*
     menuBunsick : async (req,res)=>{
         const menu = new Menu();

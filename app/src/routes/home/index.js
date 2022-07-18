@@ -18,6 +18,9 @@ router.get("/list" ,ctrl.output.list);
 //menu get 방식 리스트 보기
 router.get("/menu", ctrl.output.menu);
 
+//add get
+router.get("/add", ctrl.output.add);
+
 //로그인 post
 router.post('/login',ctrl.process.login);
 
