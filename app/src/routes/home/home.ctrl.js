@@ -11,6 +11,7 @@ const { getMenuHan } = require("../../models/menuStorage");
 
 const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
     home: (req, res) => {
+        console.log(req.session.userId);
         res.render("home/index");
     },
     login: (req,res) => {
@@ -75,7 +76,7 @@ const process = {
     login : async (req, res) => {
         const user = new User(req.body);
         const response = await user.login();
-        
+        req.session.userId=req.body.id;
         return res.json(response);
         // const id = req.body.id,
         //     pw = req.body.pw;
