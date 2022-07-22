@@ -9,12 +9,18 @@ const Menu = require("../../models/menuStorage");
 const db = require("../../config/db");
 const { getMenuHan } = require("../../models/menuStorage");
 
+
 const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
     home: (req, res) => {
-        console.log(req.session.userId);
+        console.log(req.session.userId + "세션값");
+        
         res.render("home/index");
     },
     login: (req,res) => {
+        const sessionId= req.session.userId;
+        if(sessionId!=null){
+            res.render("home/index");
+        }
         res.render("home/login");
     },
     register : (req,res) => {
@@ -77,6 +83,7 @@ const process = {
         const user = new User(req.body);
         const response = await user.login();
         req.session.userId=req.body.id;
+        
         return res.json(response);
         // const id = req.body.id,
         //     pw = req.body.pw;
