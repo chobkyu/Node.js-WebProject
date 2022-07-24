@@ -8,7 +8,16 @@
     <script src="/js/home/login.js" defer></script>
     <title>Document</title>
 </head>
+<script>
+  const userId = document.getElementById("userid").innerText;
+  alert(userId);
+  if(userId !== null){
+    alert("이미 로그인 되어 있습니다");
+    window.history.go(-1);
+  }
+</script>
 <body>
+
     <div class="login-page">
         <div class="form">
           <form class="login-form">
@@ -19,6 +28,7 @@
           </form>
         </div>
       </div>
+      <span id="userid" ><%= sessionId %></span>
 </body>
 </html>
 

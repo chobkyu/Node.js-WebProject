@@ -14,14 +14,14 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
     home: (req, res) => {
         console.log(req.session.userId + "세션값");
         
-        res.render("home/index");
+        res.render("home/index",{sessionId : req.session.userId});
     },
     login: (req,res) => {
-        const sessionId= req.session.userId;
-        if(sessionId!=null){
-            res.render("home/index");
-        }
-        res.render("home/login");
+        const sessionId= req.session.userId;  //세션 아이디를 받아옴
+        // if(sessionId!=null){
+        //     res.render("home/index",{sessionId : req.session.userId});
+        // }
+        res.render("home/login",{sessionId : sessionId});
     },
     register : (req,res) => {
         res.render("home/register");
@@ -33,7 +33,7 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
             console.log(rows[0].name);
             res.render("home/list",{rows:rows});
         });*/
-        const member = new List();
+        const member = new List();  //member 리스트
         const key = req.query.key;
         console.log(key);
         if(key===undefined){
@@ -41,7 +41,7 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         
             res.render("home/list",{rows:rows});
         }
-        else{
+        else{  //검색 기능
             const searchRow = await member.getSearchMember(key);
             res.render("home/list",{rows:searchRow});
         }
@@ -57,9 +57,9 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         const rows = await menu.getMenu(category);
         console.log(rows);
         res.render("home/menu",{rows:rows});
-    },
+    }, //장바구니 기능, 결제 구현해야함
 
-    add : (req, res) => {
+    add : (req, res) => {   //메뉴 추가
         res.render("home/add");
     }
 /*
