@@ -18,9 +18,9 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
     },
     login: (req,res) => {
         const sessionId= req.session.userId;  //세션 아이디를 받아옴
-        // if(sessionId!=null){
-        //     res.render("home/index",{sessionId : req.session.userId});
-        // }
+         if(sessionId!=null){  
+             res.render("home/index",{sessionId : req.session.userId});
+         }
         res.render("home/login",{sessionId : sessionId});
     },
     register : (req,res) => {
@@ -69,7 +69,12 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
     },
 
     manage : (req, res) => {
-        res.render("home/manage");
+        if(req.session.userId==="manage"){
+            res.render("home/manage");
+        }
+        else{
+            res.render("home/index");
+        }
     },
 /*
     menuBunsick : async (req,res)=>{
