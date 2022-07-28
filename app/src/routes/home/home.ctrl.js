@@ -26,9 +26,6 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
     register : (req,res) => {
         res.render("home/register");
     },
-    qwe : (req,res) => {
-        res.render("home/qwe");
-    },
 
     css : (req,res) => {
         res.render("home/css");
@@ -69,7 +66,11 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
 
     add : (req, res) => {   //메뉴 추가
         res.render("home/add");
-    }
+    },
+
+    manage : (req, res) => {
+        res.render("home/manage");
+    },
 /*
     menuBunsick : async (req,res)=>{
         const menu = new Menu();

@@ -15,9 +15,9 @@ router.get("/register" ,ctrl.output.register);
 
 router.get("/list" ,ctrl.output.list);
 
-router.get("/qwe",ctrl.output.qwe);
-
 router.get("/css",ctrl.output.css);
+
+router.get("/manage",ctrl.output.manage);
 
 //menu get 방식 리스트 보기
 router.get("/menu", ctrl.output.menu);
