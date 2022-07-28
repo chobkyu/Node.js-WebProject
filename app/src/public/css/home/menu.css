@@ -1,0 +1,115 @@
+
+body{
+    margin:0;
+}
+
+
+.left{
+    width:20%;
+    float:left;
+    opacity:0;
+    border:1px solid;
+    
+}
+.right{
+    width:20%;
+    float:left;
+    opacity:0;
+    border:1px solid;
+}
+.center{
+    width:60%;
+    float:left;
+}
+
+.navbar{
+    position: relative;
+    margin-bottom: 10px;
+    height:50px;
+    border:1px solid black;
+}
+
+.menu_bar{
+    margin-top:10px;
+    padding:10px;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+}
+.food{
+    width: fit-content;
+    padding: 10px;
+    margin-left:15px;
+    margin-right:15px;
+}
+.food:hover{
+    background-color: #ccc;
+}
+
+#menu{
+    display: inline-block;
+    margin-right: 0px;
+    width: 32%;
+}
+
+#menu img{
+    width: 98%;
+    object-fit:cover;
+    padding:10px;
+}
+
+#menu_name{
+    margin-top:5px;
+    margin-bottom: 0px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.priceAddBtn{
+    display: flex;
+    margin-right: 0px;
+}
+
+
+#menuBtn{
+    display: inline-block;
+    margin-top:-14px;
+    margin-bottom:10px;
+    margin-left:43.5%;
+    text-align: center;
+    padding:7px;
+    background-color: #6aafe6;
+    color: #d4dfe6;
+    border-radius: 12px;
+    border: solid 0px;
+}
+.PayAddBack_btn{
+    width: fit-content;
+    margin: auto;
+}
+
+@keyframes jelly {
+    25% {
+      transform: scale(0.9, 1.1);
+    }
+  
+    50% {
+      transform: scale(1.1, 0.9);
+    }
+  
+    75% {
+      transform: scale(0.95, 1.05);
+    }
+  }
+#menuBtn:hover{
+    animation: jelly 0.5s;
+}
+
+.menu_list{
+    border: solid 1px black;
+    overflow-y: hidden;
+}
+
+
+
+

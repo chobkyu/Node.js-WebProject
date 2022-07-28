@@ -26,6 +26,14 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
     register : (req,res) => {
         res.render("home/register");
     },
+    qwe : (req,res) => {
+        res.render("home/qwe");
+    },
+
+    css : (req,res) => {
+        res.render("home/css");
+    },
+
     list : async (req,res) => {
         /*const sql = "select * from member";
         db.query(sql,(err,rows)=>{

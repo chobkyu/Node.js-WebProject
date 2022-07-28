@@ -31,9 +31,10 @@ pay.addEventListener("click", ()=>{
 function category(menuSelect){
     
     console.log(menuSelect);
-    if(menuSelect===""){
+    
+    /*if(menuSelect===""){
         location.href = "/menu?sel=한식";
-    }
+    }*/
     
     location.href = "/menu?sel="+menuSelect;
 }
