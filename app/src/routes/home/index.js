@@ -19,6 +19,7 @@ router.get("/css",ctrl.output.css);
 
 router.get("/manage",ctrl.output.manage);
 
+router.get("/logOut",ctrl.output.logOut);
 //menu get 방식 리스트 보기
 router.get("/menu", ctrl.output.menu);
 

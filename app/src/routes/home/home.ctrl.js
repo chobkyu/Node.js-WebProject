@@ -76,6 +76,23 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
             res.render("home/index");
         }
     },
+    logOut : (req, res) => {
+        if(req.session.userId){
+            console.log('로그아웃');
+           // alert("로그아웃");
+            req.session.destroy(function(err){
+                if(err) throw err;
+                console.log('세션 삭제하고 로그아웃됨');
+                res.render('home/index');
+            });
+        }
+        else{
+            //alert("로그인 상태 아님");
+            console.log('로그인 상태 아님');
+            res.render('home/index');
+        }
+    }
+
 /*
     menuBunsick : async (req,res)=>{
         const menu = new Menu();
