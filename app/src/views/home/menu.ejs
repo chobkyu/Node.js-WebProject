@@ -13,34 +13,16 @@
             
             <div class="center">
                 <div class="menu_bar">
-                    <!--<div class="food" onclick="category('한식')">한식</div>-->
-                    <div class="food" onclick="fetch('menu?sel=한식').then(function(response){
-                        response.text().then(function(text){
-                            document.querySelector('body').innerHTML=text;
-                        })
-                    })">한식</div>
-                   <!-- <div class="food" onclick="category('양식')">양식</div>-->
-                    <div class="food" onclick="fetch('menu?sel=양식').then(function(response){
-                        response.text().then(function(text){
-                            document.querySelector('body').innerHTML=text;
-                        })
-                    })">양식</div>
-
-                    <div class="food" onclick="fetch('menu?sel=분식').then(function(response){
-                        response.text().then(function(text){
-                            document.querySelector('body').innerHTML=text;
-                        })
-                    })">분식</div>
-
-
-
+                    <div class="food" onclick="fetch_page('한식')">한식</div>
+                    <div class="food" onclick="fetch_page('양식')">양식</div>
+                    <div class="food" onclick="fetch_page('분식')">분식</div>
                 </div>
                 <div class="menu_list">    
             <% 
                 var i = 0; 
                 for(i;i<rows.length; i++)
                 {
-                    var data = rows[i];
+                var data = rows[i]; 
                 %>
                     <div id="menu">
                     <h6 id = "menu_name"><%= data.menu%>&nbsp&nbsp(<%= data.price %> \)</h6>
@@ -52,10 +34,32 @@
             <%}%>
                 </div>
 
-        <div class="navbar"></div>
+        <div class="navbar">
+            <div class="basket"onclick="임시()">
+                <%= data.menu%>&nbsp&nbsp(<%= data.price %> \)
+                <div class="count">1
+
+                </div>
+            </div>
+
+            <div class="basket">
+                <%= data.menu%>&nbsp&nbsp(<%= data.price %> \)
+                <div class="count">2
+
+                </div>
+            </div>
+
+            <div class="basket">
+                <%= data.menu%>&nbsp&nbsp(<%= data.price %> \)
+                <div class="count">3
+
+                </div>
+            </div>
+
+        </div>
 
         <div class="PayAddBack_btn">      
-        <button id = "pay">결제하기</button>
+        <button onclick="pay_Money()">결제하기</button>
         <button onclick = "location.href='/'">뒤로가기</button>
         </div> 
         </div> <!--center-->
