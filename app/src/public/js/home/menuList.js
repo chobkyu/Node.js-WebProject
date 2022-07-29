@@ -11,16 +11,24 @@ const pay = document.querySelector('#pay');
 const basketList = new Array();
 
 function pay_Money(){
-
+    console.log("dsaflasdfasdf");
     if(confirm("결제하시겠습니까?") ==true){
         var payMoney =0;
     }
     for(var i=0; i<basketList.length;i++){
         console.log(parseInt(basketList[i].menuprice));
         payMoney=payMoney+parseInt(basketList[i].menuprice);
-    }
-    console.log(payMoney);
 
+    }  //이렇게 하나하나 구해서 넘기지 말고
+    console.log(payMoney);
+    fetch("/pay",{    //이렇게 리스트 통째로 넘기세요 서버에서 처리해서 넘길겁니다
+        method:"POST",
+        headers :{
+            "Content-Type" : "application/json",
+        },
+        body: JSON.stringify(basketList),
+    })
+    //.then((res)=>res.json())
 }
 
 /*pay.addEventListener("click", ()=>{

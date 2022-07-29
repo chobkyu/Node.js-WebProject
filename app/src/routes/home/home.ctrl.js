@@ -147,6 +147,14 @@ const process = {
         const menuAdd = new Menu(req.body);
         const response = await menuAdd.menu();
         return res.json(response);
+    },
+
+    pay : (req, res) => {
+        const list = req.body;
+        for(var i=0;i<req.body.length;i++){
+            console.log(list[i].name+","+list[i].menuprice);
+        }
+        
     }
 };
 

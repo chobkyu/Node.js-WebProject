@@ -35,5 +35,8 @@ router.post("/register" ,ctrl.process.register);
 //메뉴등록 post
 router.post("/add" , ctrl.process.add);
 
+//결제 post
+router.post("/pay", ctrl.process.pay);
+
 
 module.exports=router;
