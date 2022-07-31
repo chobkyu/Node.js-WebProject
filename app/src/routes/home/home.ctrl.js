@@ -91,7 +91,15 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
             console.log('로그인 상태 아님');
             res.render('home/index');
         }
-    }
+    },
+
+    delete : (req, res) => {   //메뉴 삭제
+        res.render("home/delete");
+    },
+
+    modify : (req, res) => {   //메뉴 수정
+        res.render("home/modify");
+    },
 
 /*
     menuBunsick : async (req,res)=>{
@@ -155,7 +163,19 @@ const process = {
             console.log(list[i].name+","+list[i].menuprice);
         }
         
-    }
+    },
+
+    delete : async (req, res) => {
+        const deleteMenu = new Menu(req.body);
+        const response = await deleteMenu.deleteMenu();
+        return res.json(response);
+    },
+
+    modify : async (req, res) => {
+        const modifyMenu = new Menu(req.body);
+        const response = await modifyMenu.modifyMenu();
+        return res.json(response);
+    },
 };
 
 module.exports = {

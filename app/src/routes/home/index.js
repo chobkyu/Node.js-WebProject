@@ -26,6 +26,13 @@ router.get("/menu", ctrl.output.menu);
 //add get
 router.get("/add", ctrl.output.add);
 
+//delete get
+router.get("/delete", ctrl.output.delete);
+
+//modify get
+router.get("/modify", ctrl.output.modify);
+
+
 //로그인 post
 router.post('/login',ctrl.process.login);
 
@@ -37,6 +44,12 @@ router.post("/add" , ctrl.process.add);
 
 //결제 post
 router.post("/pay", ctrl.process.pay);
+
+//메뉴 삭제 post
+router.post("/delete", ctrl.process.delete);
+
+//메뉴 수정 post
+router.post("/modify", ctrl.process.modify);
 
 
 module.exports=router;

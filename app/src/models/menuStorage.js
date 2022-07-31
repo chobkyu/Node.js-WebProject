@@ -39,6 +39,36 @@ class Menu{
             return {success : false, msg : err};
         }
     }
+
+    async deleteMenu(){
+        const deleteMenu = this.body;
+        try{
+            return new Promise((resolve, reject) => {
+                const query = "delete from menu where menu=?;";
+                db.query(query, deleteMenu.menu, (err) =>{
+                    if(err) reject("${err}");
+                    resolve({success : true});
+                })
+            });
+        }catch (err) {
+            return {success : false, msg : err};
+        }
+    }
+
+    async modifyMenu(){
+        const modifyMenu = this.body;
+        try{
+            return new Promise((resolve, reject) => {
+                const query = "update menu set menu=?, price=?, category=? where menu=?;";
+                db.query(query,[modifyMenu.newMenu, modifyMenu.price, modifyMenu.category, modifyMenu.menu], (err) =>{
+                    if(err) reject("${err}");
+                    resolve({success : true});
+                })
+            });
+        }catch (err) {
+            return {success : false, msg : err};
+        }
+    }
 }
 
 module.exports = Menu;
