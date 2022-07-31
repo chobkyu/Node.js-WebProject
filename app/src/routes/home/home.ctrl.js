@@ -39,11 +39,12 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         console.log(key);
         if(key===undefined){
             const rows = await member.getMemberInfo();
-        
+            
             res.render("home/list",{rows:rows});
         }
         else{  //검색 기능
             const searchRow = await member.getSearchMember(key);
+            
             res.render("home/list",{rows:searchRow});
         }
         
@@ -105,8 +106,10 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
             console.log(list[i].name+","+list[i].menuprice);
         }//이 부분 나중에 삭제 할거임*/
         console.log(list);
+
         const rows = list;
-        res.render("home/basket",{rows: rows});
+        console.log(rows.price[0]);
+        res.render("home/basket",{rows:rows});
         //return res.json(list);        
     },
 

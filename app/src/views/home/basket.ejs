@@ -5,11 +5,23 @@
     </head>
     <body>
         <div>
-
+            dfsfsdf
         </div>
         <div>
-
+            <%
+                var i = 0;
+                //console.log(rows.name[0]+" asdfasdfsd");
+                for(i;i<rows.name.length; i++)
+                {
+                    var name = rows.name[i];
+                    
+                    var price =rows.price[i];
+                    
+            %>
+                    <p><%= name %></p>
+                    <p><%= price %></p>
+                <%}%>
         </div>
-        <button></button>
+        <button>결제</button>
     </body>
 </html>

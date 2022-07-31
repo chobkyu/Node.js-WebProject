@@ -18,20 +18,20 @@
                     <div class="food" onclick="fetch_page('분식')">분식</div>
                 </div>
                 <div class="menu_list">    
-            <% 
-                var i = 0; 
-                for(i;i<rows.length; i++)
-                {
-                var data = rows[i]; 
-                %>
-                    <div id="menu">
-                    <h6 id = "menu_name"><%= data.menu%>&nbsp&nbsp(<%= data.price %> \)</h6>
-                    <img src="https://ifh.cc/g/xzgNxP.jpg">
-                    <div class="priceAddBtn">
-                    <button onclick = "menuSel('<%= data.menu%>' , '<%= data.price %>')" id = "menuBtn">선택</button>
-                    </div>
-                </div>
-            <%}%>
+                    <% 
+                        var i = 0; 
+                        for(i;i<rows.length; i++)
+                        {
+                        var data = rows[i]; 
+                        %>
+                            <div id="menu">
+                            <h6 id = "menu_name"><%= data.menu%>&nbsp&nbsp(<%= data.price %> \)</h6>
+                            <img src="https://ifh.cc/g/xzgNxP.jpg">
+                            <div class="priceAddBtn">
+                            <button onclick = "menuSel('<%= data.menu%>' , '<%= data.price %>')" id = "menuBtn">선택</button>
+                            </div>
+                        </div>
+                    <%}%>
                 </div>
 <!--    고른 리스트 서버에 넘기는거 하느라 잠시 죽여놓겠습니다
         <div class="navbar">

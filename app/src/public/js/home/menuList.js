@@ -29,10 +29,19 @@ function pay_Money(){
 
     for(var i=0; i<basketList.length;i++){
         var hiddenField = document.createElement("input");
+        var hiddenField2 = document.createElement("input");
+        
         hiddenField.setAttribute("type","hidden");
-        hiddenField.setAttribute("name",basketList[i].name);
-        hiddenField.setAttribute("value",basketList[i].menuprice);
+        hiddenField.setAttribute("name","name");
+        hiddenField.setAttribute("value",basketList[i].name);
+
+        hiddenField2.setAttribute("type","hidden");
+        hiddenField2.setAttribute("name","price");
+        hiddenField2.setAttribute("value",basketList[i].menuprice);
+        
+        
         form.appendChild(hiddenField);
+        form.appendChild(hiddenField2);
     }
     document.body.appendChild(form);
     form.submit();
