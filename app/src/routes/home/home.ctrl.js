@@ -108,9 +108,9 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         console.log(list);
 
         const rows = list;
-        console.log(rows.price[0]);
+        
         res.render("home/basket",{rows:rows});
-        //return res.json(list);        
+               
     },
 
 
