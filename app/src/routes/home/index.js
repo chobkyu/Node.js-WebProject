@@ -32,6 +32,9 @@ router.get("/delete", ctrl.output.delete);
 //modify get
 router.get("/modify", ctrl.output.modify);
 
+//결제 
+router.post("/pay", ctrl.output.pay);
+
 
 //로그인 post
 router.post('/login',ctrl.process.login);
@@ -42,8 +45,7 @@ router.post("/register" ,ctrl.process.register);
 //메뉴등록 post
 router.post("/add" , ctrl.process.add);
 
-//결제 post
-router.post("/pay", ctrl.process.pay);
+
 
 //메뉴 삭제 post
 router.post("/delete", ctrl.process.delete);

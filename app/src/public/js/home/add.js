@@ -11,7 +11,9 @@ function addMenu(){
     if(!menu.value) return alert("메뉴를 입력해주세요");
     if(!price.value) return alert("가격을 입력해주세요");
     if(!category.value) return alert("카테고리를 입력해주세요");
-
+    if(!(category.value==="한식"||category.value==="분식"||category.value==="양식")) return alert("카테고리를 확인하세요");
+    //카테고리 추가 예정
+    
     const req = {
         menu : menu.value,
         price : price.value,

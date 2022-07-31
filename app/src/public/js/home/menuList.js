@@ -11,7 +11,7 @@ const pay = document.querySelector('#pay');
 const basketList = new Array();
 
 function pay_Money(){
-    console.log("dsaflasdfasdf");
+    
     if(confirm("결제하시겠습니까?") ==true){
         var payMoney =0;
     }

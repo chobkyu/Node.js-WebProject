@@ -101,6 +101,14 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         res.render("home/modify");
     },
 
+    pay : (req, res) => {
+        const list = req.body;
+        for(var i=0;i<req.body.length;i++){
+            console.log(list[i].name+","+list[i].menuprice);
+        }//이 부분 나중에 삭제 할거임
+        res.render("home/basket");
+    },
+
 /*
     menuBunsick : async (req,res)=>{
         const menu = new Menu();
@@ -157,13 +165,6 @@ const process = {
         return res.json(response);
     },
 
-    pay : (req, res) => {
-        const list = req.body;
-        for(var i=0;i<req.body.length;i++){
-            console.log(list[i].name+","+list[i].menuprice);
-        }
-        
-    },
 
     delete : async (req, res) => {
         const deleteMenu = new Menu(req.body);
