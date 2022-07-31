@@ -10,17 +10,19 @@
         <div>
             <%
                 var i = 0;
+                var count = 0;
                 //console.log(rows.name[0]+" asdfasdfsd");
                 for(i;i<rows.name.length; i++)
                 {
                     var name = rows.name[i];
-                    
                     var price =rows.price[i];
+                    count += parseInt(price);
                     
             %>
                     <p><%= name %></p>
                     <p><%= price %></p>
                 <%}%>
+                <p>총 결제 금액 : <%= count %></p>%>
         </div>
         <button>결제</button>
     </body>
