@@ -21,14 +21,36 @@ function pay_Money(){
 
     }  //이렇게 하나하나 구해서 넘기지 말고
     console.log(payMoney);
+
+    var form = document.createElement('form');
+    form.setAttribute('method','post');
+    form.setAttribute('action','/pay');
+    //document.characterSet="utf-8";
+
+    for(var i=0; i<basketList.length;i++){
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type","hidden");
+        hiddenField.setAttribute("name",basketList[i].name);
+        hiddenField.setAttribute("value",basketList[i].menuprice);
+        form.appendChild(hiddenField);
+    }
+    document.body.appendChild(form);
+    form.submit();
+
+    /*
     fetch("/pay",{    //이렇게 리스트 통째로 넘기세요 서버에서 처리해서 넘길겁니다
         method:"POST",
         headers :{
             "Content-Type" : "application/json",
         },
         body: JSON.stringify(basketList),
-    })
-    //.then((res)=>res.json())
+    })/*
+    .then((res)=>res.json())
+    .then((res)=>{
+        
+        location.href='/basket?option='+res;
+        
+    })*/
 }
 
 /*pay.addEventListener("click", ()=>{

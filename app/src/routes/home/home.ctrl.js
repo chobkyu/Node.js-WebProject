@@ -27,10 +27,6 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         res.render("home/register");
     },
 
-    css : (req,res) => {
-        res.render("home/css");
-    },
-
     list : async (req,res) => {
         /*const sql = "select * from member";
         db.query(sql,(err,rows)=>{
@@ -101,13 +97,24 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         res.render("home/modify");
     },
 
+    
     pay : (req, res) => {
         const list = req.body;
-        for(var i=0;i<req.body.length;i++){
+        /*
+        for(var i=0;i<list.length;i++){
             console.log(list[i].name+","+list[i].menuprice);
-        }//이 부분 나중에 삭제 할거임
-        res.render("home/basket");
+        }//이 부분 나중에 삭제 할거임*/
+        console.log(list);
+        const rows = list;
+        res.render("home/basket",{rows: rows});
+        //return res.json(list);        
     },
+
+
+    /*
+    basket : (req, res) => {
+        res.render("home/basket");
+    }*/
 
 /*
     menuBunsick : async (req,res)=>{
@@ -177,6 +184,8 @@ const process = {
         const response = await modifyMenu.modifyMenu();
         return res.json(response);
     },
+
+
 };
 
 module.exports = {

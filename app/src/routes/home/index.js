@@ -15,11 +15,10 @@ router.get("/register" ,ctrl.output.register);
 
 router.get("/list" ,ctrl.output.list);
 
-router.get("/css",ctrl.output.css);
-
 router.get("/manage",ctrl.output.manage);
 
 router.get("/logOut",ctrl.output.logOut);
+
 //menu get 방식 리스트 보기
 router.get("/menu", ctrl.output.menu);
 
@@ -32,9 +31,8 @@ router.get("/delete", ctrl.output.delete);
 //modify get
 router.get("/modify", ctrl.output.modify);
 
-//결제 
+//결제 페이지 post
 router.post("/pay", ctrl.output.pay);
-
 
 //로그인 post
 router.post('/login',ctrl.process.login);
@@ -52,6 +50,8 @@ router.post("/delete", ctrl.process.delete);
 
 //메뉴 수정 post
 router.post("/modify", ctrl.process.modify);
+
+
 
 
 module.exports=router;
