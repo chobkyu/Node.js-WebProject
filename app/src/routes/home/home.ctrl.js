@@ -178,7 +178,7 @@ const process = {
         return res.json(response);
     },
 
-    pay : (req, res) => {
+    basket : (req, res) => {
         const list = req.body;
         
         console.log(list);

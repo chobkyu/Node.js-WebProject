@@ -25,7 +25,7 @@ function pay_Money(){
     //ajax로 넘기면 새로고침이 안되서 다음페이지로 이동하지 못하기 때문에 자바스크립트에서 post 방식으로 직접 넘겼습니다
     var form = document.createElement('form');
     form.setAttribute('method','post');
-    form.setAttribute('action','/pay');
+    form.setAttribute('action','/basket');
     //document.characterSet="utf-8";
 
     for(var i=0; i<basketList.length;i++){

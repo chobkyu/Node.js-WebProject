@@ -55,6 +55,6 @@ router.post("/delete", ctrl.process.delete);
 router.post("/modify", ctrl.process.modify);
 
 //결제 페이지 post
-router.post("/pay", ctrl.process.pay);
+router.post("/basket", ctrl.process.basket);
 
 module.exports=router;
