@@ -99,19 +99,7 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
     },
 
     
-    pay : (req, res) => {
-        const list = req.body;
-        /*
-        for(var i=0;i<list.length;i++){
-            console.log(list[i].name+","+list[i].menuprice);
-        }//이 부분 나중에 삭제 할거임*/
-        console.log(list);
-
-        const rows = list;
-        
-        res.render("home/basket",{rows:rows});
-               
-    },
+   
 
 
     /*
@@ -187,7 +175,17 @@ const process = {
         const response = await modifyMenu.modifyMenu();
         return res.json(response);
     },
+    
+    pay : (req, res) => {
+        const list = req.body;
+        
+        console.log(list);
 
+        const rows = list;
+        
+        res.render("home/basket",{rows:rows});
+               
+    },
 
 };
 
