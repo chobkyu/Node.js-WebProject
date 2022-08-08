@@ -99,7 +99,7 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
     },
 
     cook : (req, res) => {
-
+        console.log(req.body.price+" fasfsdf");
     },  
    
 
@@ -181,7 +181,7 @@ const process = {
     basket : (req, res) => {
         const list = req.body;
         
-        console.log(list);
+        //console.log(list);
 
         const rows = list;
         

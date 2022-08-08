@@ -4,17 +4,30 @@
         <title>결제 확인 페이지</title>
     </head>
     <script>
-        function pay(){
-            const amount = document.getElementById("amount").innerText;
-            const name = document.getElementById("name").innerText;
-            const price = document.getElementById("price").innerText;
-            console.log(amount);
+        function pay(name,price){
+            console.log(name);
+            console.log(price);
+            /*
+            const req = new Array();
+            for(i=0;i<rows.size; i++)
+            {
+                console.log(rows.name[i]);
+                console.log(rows.price[i]);
 
-            for(var i=0;i<parseInt(amount);i++){
-                console.log("ADFadsf");
-                console.log(name);
-                console.log(price);
+                req[i] = {
+                    name : rows.name[i],
+                    price : rows.price[i],
+                } 
             }
+
+            fetch("/cook", {
+                method:"POST",
+                headers : {
+                    "Content-Type" : "application/json",
+                },
+                body: JSON.stringify(req),
+            })*/
+            
             
 
 
@@ -29,11 +42,19 @@
                 var i = 0;
                 var count = 0;
                 var amount = rows.name.length;
-                //console.log(rows.name[0]+" asdfasdfsd");
+                console.log(rows.name.length+" asdfasdfsd");
+                const req = new Array();
                 for(i;i<rows.name.length; i++)
                 {
+                    var data=new Object();
                     var name = rows.name[i];
                     var price =rows.price[i];
+                    
+                    data.name = name;
+                    data.price = price;
+
+                    req.push(data);
+
                     count += parseInt(price);
                     
             %>
@@ -42,7 +63,7 @@
                 <%}%>
                 <p id="amount">고른 메뉴 개수 : <%= amount %></p>
                 <p>총 결제 금액 : <%= count %></p>%>
-                <button onclick = "pay()">결제</button>
+                <button onclick = "pay('<%= rows.name %>','<%= rows.price%>')">결제</button>
         </div>
         
     </body>
