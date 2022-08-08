@@ -5,28 +5,31 @@
     </head>
     <script>
         function pay(name,price){
-            console.log(name);
-            console.log(price);
-            /*
+            const menuName = name.split(",");
+            console.log(menuName);
+            const menuPrice = price.split(",");
+            console.log(menuPrice);
+            
             const req = new Array();
-            for(i=0;i<rows.size; i++)
+            for(i=0;i<menuName.length; i++)
             {
-                console.log(rows.name[i]);
-                console.log(rows.price[i]);
+                console.log("adsfdsf");
+                var data = new Object();
 
-                req[i] = {
-                    name : rows.name[i],
-                    price : rows.price[i],
-                } 
+                data.name = menuName[i];
+                data.price = menuPrice[i];
+              
+                req.push(data);
             }
-
+            console.log(req);
+            console.log(JSON.stringify(req));
             fetch("/cook", {
                 method:"POST",
                 headers : {
                     "Content-Type" : "application/json",
                 },
                 body: JSON.stringify(req),
-            })*/
+            })
             
             
 
@@ -43,17 +46,15 @@
                 var count = 0;
                 var amount = rows.name.length;
                 console.log(rows.name.length+" asdfasdfsd");
-                const req = new Array();
+                const menuName = rows.name;
+                const menuPrice = rows.price;
                 for(i;i<rows.name.length; i++)
                 {
-                    var data=new Object();
+                    
                     var name = rows.name[i];
                     var price =rows.price[i];
                     
-                    data.name = name;
-                    data.price = price;
-
-                    req.push(data);
+                    
 
                     count += parseInt(price);
                     
