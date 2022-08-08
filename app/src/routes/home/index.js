@@ -36,8 +36,8 @@ router.get("/delete", ctrl.output.delete);
 //modify get
 router.get("/modify", ctrl.output.modify);
 
-//요리사 주문 들어온거 보는 페이지 get
-router.post("/cook", ctrl.output.cook);
+//주문 들어가는거 post
+router.post("/cook", ctrl.process.cook);
 //---------------process------------------//
 //로그인 post
 router.post('/login',ctrl.process.login);
