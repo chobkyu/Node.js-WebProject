@@ -4,6 +4,7 @@
 const User = require("../../models/User");
 const List = require("../../models/listStorage");
 const Menu = require("../../models/menuStorage");
+const Basket = require("../../models/basketStorage");
 
 //
 const db = require("../../config/db");
@@ -187,8 +188,11 @@ const process = {
                
     },
 
-    cook : (req, res) => {
-        console.log(req.body[0].name+" fasfsdf");
+    cook : async (req, res) => {
+        //console.log(req.body[0].name+" fasfsdf");
+        const order = new Basket(req.body);
+        const response = await order.insertOrder();
+        return res.json(response);
     },  
 
 };

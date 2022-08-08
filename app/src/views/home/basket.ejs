@@ -13,7 +13,7 @@
             const req = new Array();
             for(i=0;i<menuName.length; i++)
             {
-                console.log("adsfdsf");
+                
                 var data = new Object();
 
                 data.name = menuName[i];
@@ -21,6 +21,8 @@
               
                 req.push(data);
             }
+
+            alert("결제하시겠습니까?");
             console.log(req);
             console.log(JSON.stringify(req));
             fetch("/cook", {
@@ -29,6 +31,15 @@
                     "Content-Type" : "application/json",
                 },
                 body: JSON.stringify(req),
+            })
+            .then((res)=>res.json())
+            .then((res)=>{
+                if(res.success){
+                    location.href='/';
+                } else {
+                    alert(res.msg);
+                }
+                
             })
             
             
