@@ -55,6 +55,37 @@ class Basket{
         }
             
     }
+
+    selectOrder(){
+        
+        return new Promise((resolve, reject)=>{
+            const query = "select * from basket";
+            db.query(query,(err,row) => {
+            if(err) reject("${err}");
+            resolve(row);
+                    
+            })
+        })
+    
+    }
+
+    async divideOrder(){
+        const rows = await this.selectOrder();
+        const orderLen = rows.length-1;
+        const last = rows[orderLen].orderNum;
+        console.log(last);
+        const orderRows = new Array();
+        for(var i = 1; i<=last;i++){
+            var data = new Object;
+            for(var j=0 ;j<=orderLen;j++){
+                if(i===rows[j].orderNum){
+                    console.log(rows[j].menu + " "+i);
+                }
+            }
+        }
+
+        
+    }
 }
 
 
