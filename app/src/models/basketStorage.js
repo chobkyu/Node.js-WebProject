@@ -30,10 +30,7 @@ class Basket{
     }
     
            
-        
       
-        
-
     async insertOrder(){   
         const order = this.body;
         const num = order.length;

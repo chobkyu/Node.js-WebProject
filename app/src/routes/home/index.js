@@ -36,8 +36,8 @@ router.get("/delete", ctrl.output.delete);
 //modify get
 router.get("/modify", ctrl.output.modify);
 
-//주문 들어가는거 post
-router.post("/cook", ctrl.process.cook);
+router.get("/cook", ctrl.output.cook);
+
 //---------------process------------------//
 //로그인 post
 router.post('/login',ctrl.process.login);
@@ -56,5 +56,8 @@ router.post("/modify", ctrl.process.modify);
 
 //결제 페이지 post
 router.post("/basket", ctrl.process.basket);
+
+//주문 들어가는거 post
+router.post("/cook", ctrl.process.cook);
 
 module.exports=router;

@@ -35,7 +35,8 @@
             .then((res)=>res.json())
             .then((res)=>{
                 if(res.success){
-                    location.href='/';
+                    alert("주문이 완료되었습니다");
+                    location.href='/menu';
                 } else {
                     alert(res.msg);
                 }
