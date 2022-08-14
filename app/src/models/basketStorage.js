@@ -94,6 +94,20 @@ class Basket{
         //console.log(orderRows);
         return orderRows;
     }
+
+    delete(seq){
+        try{
+            return new Promise((resolve, reject) => {
+                const query = "delete from basket where orderNum=?;";
+                db.query(query, seq, (err) =>{
+                    if(err) reject("${err}");
+                    resolve({success : true});
+                })
+            });
+        }catch (err) {
+            return {success : false, msg : err};
+        }
+    }
 }
 
 

@@ -36,7 +36,11 @@ router.get("/delete", ctrl.output.delete);
 //modify get
 router.get("/modify", ctrl.output.modify);
 
+//주문 내역 페이지 get
 router.get("/cook", ctrl.output.cook);
+
+//요리 완료 후 삭제 get
+router.get("/complete", ctrl.output.complete);
 
 //---------------process------------------//
 //로그인 post

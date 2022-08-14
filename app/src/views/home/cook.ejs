@@ -3,6 +3,27 @@
         <meta charset="UTF-8">
         <title>주문 내역 페이지</title>
     </head>
+    <script>
+        function complete(){
+            document.getElementById("btn").innerText="조리완료";
+        }
+        function deleteMenu(seq){
+            console.log(seq);
+
+            fetch('/complete?seq='+seq, {
+                method: 'GET',
+            })
+            .then((res)=>res.json())
+            .then((res)=>{
+                if(res.success){
+                    alert(seq+"번 음식 나왔습니다");
+                    location.href='/cook';
+                } else {
+                    alert(res.msg);
+                }
+            })
+        }
+    </script>
     <body>
         <h3>주문 들어온 내역</h3>
         <table>
@@ -18,9 +39,12 @@
                 <tr>
                     <td><%= data.menu %></td>
                     <td><%= data.orderNum %></td>
+                    <td><button id="btn">조리 중</button></td><!--수정 예정-->
                 </tr>
+                
         
                         <%}%>
+                        <button onclick="deleteMenu('<%= i+1 %>')"><%= i+1 %> 번 조리완료</button>
                     <%}%>
             </tbody>
             

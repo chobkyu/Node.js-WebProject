@@ -107,6 +107,15 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         res.render("home/cook",{rows:rows});
     },
    
+    complete : async (req, res) =>{
+        const seq = req.query.seq;
+        console.log(seq);
+        
+        const order = new Basket();
+        const response = await order.delete(seq);
+        
+        return res.json(response);
+    }
 
 
     /*
