@@ -73,18 +73,26 @@ class Basket{
         const rows = await this.selectOrder();
         const orderLen = rows.length-1;
         const last = rows[orderLen].orderNum;
-        console.log(last);
+        console.log(last);  //4
+        //console.log(rows);
         const orderRows = new Array();
-        for(var i = 1; i<=last;i++){
-            var data = new Object;
-            for(var j=0 ;j<=orderLen;j++){
+        for(var i = 1; i<=last;i++){  //4번 반복
+            const temp = new Array();
+            
+            for(var j=0 ;j<=orderLen;j++){  //데이터 개수만큼 반복
+                var data = new Object;
                 if(i===rows[j].orderNum){
-                    console.log(rows[j].menu + " "+i);
+                    //console.log(rows[j].menu + " "+i);
+                    data.menu = rows[j].menu;
+                    data.orderNum = rows[j].orderNum;
+
+                    temp.push(data);
                 }
             }
+            orderRows.push(temp);
         }
-
-        
+        //console.log(orderRows);
+        return orderRows;
     }
 }
 
