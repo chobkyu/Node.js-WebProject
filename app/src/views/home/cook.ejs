@@ -4,6 +4,27 @@
         <title>주문 내역 페이지</title>
     </head>
     <body>
+        <h3>주문 들어온 내역</h3>
+        <table>
+            <tbody>
+                <%
+                    var i = 0;
+                    for(i;i<rows.length;i++)
+                    {
+                        var row = rows[i]
+                        for(var j=0; j<row.length; j++){
+                            var data = row[j];
+                %>
+                <tr>
+                    <td><%= data.menu %></td>
+                    <td><%= data.orderNum %></td>
+                </tr>
+        
+                        <%}%>
+                    <%}%>
+            </tbody>
+            
+        </table>
         
     </body>
 </html>
