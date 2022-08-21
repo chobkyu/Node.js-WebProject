@@ -85,7 +85,7 @@ class Basket{
                     //console.log(rows[j].menu + " "+i);
                     data.menu = rows[j].menu;
                     data.orderNum = rows[j].orderNum;
-
+                    data.seq = rows[j].seq;
                     temp.push(data);
                 }
             }

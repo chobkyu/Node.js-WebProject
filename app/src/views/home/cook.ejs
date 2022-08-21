@@ -4,8 +4,10 @@
         <title>주문 내역 페이지</title>
     </head>
     <script>
-        function complete(){
-            document.getElementById("btn").innerText="조리완료";
+        function complete(seq){
+            var num = seq;
+            console.log(num);
+            document.getElementById(num).innerText="조리완료";
         }
         function deleteMenu(seq){
             console.log(seq);
@@ -39,7 +41,7 @@
                 <tr>
                     <td><%= data.menu %></td>
                     <td><%= data.orderNum %></td>
-                    <td><button id="btn">조리 중</button></td><!--수정 예정-->
+                    <td><button onclick="complete('<%= data.seq %>')" id="<%= data.seq %>">조리 중</button></td><!--수정 예정-->
                 </tr>
                 
         
