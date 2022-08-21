@@ -31,10 +31,15 @@
         <table>
             <tbody>
                 <%
-                    var i = 1;
-                    for(i;i<rows.length;i++)
+                    var row1 = rows[0];
+                    var i = row1[0].orderNum;
+                    var minus = i;
+                    console.log("i="+i);
+                    var len = i+rows.length;
+                    console.log(len);
+                    for(i;i<len;i++)
                     {
-                        var row = rows[i]
+                        var row = rows[i-minus];
                         for(var j=0; j<row.length; j++){
                             var data = row[j];
                 %>
@@ -46,7 +51,7 @@
                 
         
                         <%}%>
-                        <button onclick="deleteMenu('<%= i+1 %>')"><%= i+1 %> 번 조리완료</button>
+                        <button onclick="deleteMenu('<%= i %>')"><%= i %> 번 조리완료</button>
                     <%}%>
             </tbody>
             

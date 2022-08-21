@@ -73,7 +73,7 @@ class Basket{
         const rows = await this.selectOrder();
         const orderLen = rows.length-1;
         const last = rows[orderLen].orderNum;
-        console.log(last);  //4
+        console.log(last);  //마지막 주문 번호
         //console.log(rows);
         const orderRows = new Array();
         for(var i = 1; i<=last;i++){  //4번 반복
@@ -86,10 +86,17 @@ class Basket{
                     data.menu = rows[j].menu;
                     data.orderNum = rows[j].orderNum;
                     data.seq = rows[j].seq;
-                    temp.push(data);
+                    if(data.seq!==undefined){
+                        temp.push(data);
+                    }
+                    
                 }
             }
-            orderRows.push(temp);
+            console.log(temp.length);
+            if(temp.length>0){
+                orderRows.push(temp);
+            }
+           
         }
         //console.log(orderRows);
         return orderRows;
