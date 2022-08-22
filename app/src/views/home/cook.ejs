@@ -4,6 +4,11 @@
         <title>주문 내역 페이지</title>
     </head>
     <script>
+        if('<%=rows%>'==="error"){
+            alert('주문이 없습니다');
+            history.back();
+        }
+        
         function complete(seq){
             var num = seq;
             console.log(num);
@@ -31,7 +36,8 @@
         <table>
             <tbody>
                 <%
-                    var row1 = rows[0];
+                    var row1 = rows[0];    
+                   
                     var i = row1[0].orderNum;
                     var minus = i;
                     console.log("i="+i);

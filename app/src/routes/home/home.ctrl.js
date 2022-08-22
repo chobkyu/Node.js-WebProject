@@ -103,8 +103,14 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         const order = new Basket();
         const rows = await order.divideOrder();
         console.log(rows);
-        console.log("dasfdsaf");
-        res.render("home/cook",{rows:rows});
+        if(rows[0] === undefined){
+            console.log("말리");
+            res.render("home/cook", {rows: 'error'});
+        }else{
+            console.log("fff");
+            res.render("home/cook",{rows:rows});
+        }
+        
     },
    
     complete : async (req, res) =>{
@@ -207,7 +213,9 @@ const process = {
         //console.log(req.body[0].name+" fasfsdf");
         const order = new Basket(req.body);
         const response = await order.insertOrder();
+       
         return res.json(response);
+        
     },  
 
 };
