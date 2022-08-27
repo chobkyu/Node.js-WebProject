@@ -14,6 +14,12 @@ function pay_Money(){
     
     if(confirm("결제하시겠습니까?") ==true){
         var payMoney =0;
+       
+    }
+
+    if(basketList.length==0){
+        alert("고르신 메뉴가 없습니다");
+        return;
     }
     for(var i=0; i<basketList.length;i++){
         console.log(parseInt(basketList[i].menuprice));
