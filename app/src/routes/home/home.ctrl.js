@@ -29,12 +29,6 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
     },
 
     list : async (req,res) => {
-        /*const sql = "select * from member";
-        db.query(sql,(err,rows)=>{
-            if(err) console.error(err);
-            console.log(rows[0].name);
-            res.render("home/list",{rows:rows});
-        });*/
         const member = new List();  //member 리스트
         const key = req.query.key;
         console.log(key);
@@ -60,7 +54,7 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         const rows = await menu.getMenu(category);
         console.log(rows);
         res.render("home/menu",{rows:rows});
-    }, //장바구니 기능, 결제 구현해야함
+    }, 
 
     add : (req, res) => {   //메뉴 추가
         res.render("home/add");
@@ -77,7 +71,6 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
     logOut : (req, res) => {
         if(req.session.userId){
             console.log('로그아웃');
-           // alert("로그아웃");
             req.session.destroy(function(err){
                 if(err) throw err;
                 console.log('세션 삭제하고 로그아웃됨');
@@ -85,7 +78,6 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
             });
         }
         else{
-            //alert("로그인 상태 아님");
             console.log('로그인 상태 아님');
             res.render('home/index');
         }
@@ -104,10 +96,8 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         const rows = await order.divideOrder();
         console.log(rows);
         if(rows[0] === undefined){
-            console.log("말리");
             res.render("home/cook", {rows: 'error'});
         }else{
-            console.log("fff");
             res.render("home/cook",{rows:rows});
         }
         
