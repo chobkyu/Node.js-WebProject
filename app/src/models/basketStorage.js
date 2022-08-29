@@ -2,7 +2,7 @@
 
 const db = require("../config/db");
 
-class Basket{
+class BasketStorage{
     constructor(body){
         this.body = body;
     }
@@ -56,7 +56,7 @@ class Basket{
             
     }
 
-    selectOrder(){
+    static async selectOrder(){
         
         return new Promise((resolve, reject)=>{
             const query = "select * from basket";
@@ -69,38 +69,38 @@ class Basket{
     
     }
 
-    async divideOrder(){
-        const rows = await this.selectOrder();
-        const orderLen = rows.length-1;
-        const last = rows[orderLen].orderNum;
-        console.log(last);  //마지막 주문 번호
-        //console.log(rows);
-        const orderRows = new Array();
-        for(var i = 1; i<=last;i++){  //4번 반복
-            const temp = new Array();
+    // async divideOrder(){
+    //     const rows = await this.selectOrder();
+    //     const orderLen = rows.length-1;
+    //     const last = rows[orderLen].orderNum;
+    //     console.log(last);  //마지막 주문 번호
+    //     //console.log(rows);
+    //     const orderRows = new Array();
+    //     for(var i = 1; i<=last;i++){  //4번 반복
+    //         const temp = new Array();
             
-            for(var j=0 ;j<=orderLen;j++){  //데이터 개수만큼 반복
-                var data = new Object;
-                if(i===rows[j].orderNum){
-                    //console.log(rows[j].menu + " "+i);
-                    data.menu = rows[j].menu;
-                    data.orderNum = rows[j].orderNum;
-                    data.seq = rows[j].seq;
-                    if(data.seq!==undefined){
-                        temp.push(data);
-                    }
+    //         for(var j=0 ;j<=orderLen;j++){  //데이터 개수만큼 반복
+    //             var data = new Object;
+    //             if(i===rows[j].orderNum){
+    //                 //console.log(rows[j].menu + " "+i);
+    //                 data.menu = rows[j].menu;
+    //                 data.orderNum = rows[j].orderNum;
+    //                 data.seq = rows[j].seq;
+    //                 if(data.seq!==undefined){
+    //                     temp.push(data);
+    //                 }
                     
-                }
-            }
-            console.log(temp.length);
-            if(temp.length>0){
-                orderRows.push(temp);
-            }
+    //             }
+    //         }
+    //         console.log(temp.length);
+    //         if(temp.length>0){
+    //             orderRows.push(temp);
+    //         }
            
-        }
-        //console.log(orderRows);
-        return orderRows;
-    }
+    //     }
+    //     //console.log(orderRows);
+    //     return orderRows;
+    // }
 
     delete(seq){
         try{
@@ -118,4 +118,4 @@ class Basket{
 }
 
 
-module.exports = Basket;
+module.exports = BasketStorage;
