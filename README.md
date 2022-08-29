@@ -1,2 +1,2 @@
-# node.js WebProject
- node.js로 만드는 웹페이지
+# Node.js WebProject
+ Node.js express 프레임워크로 만드는 웹페이지
