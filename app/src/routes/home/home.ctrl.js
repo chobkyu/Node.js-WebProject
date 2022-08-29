@@ -4,7 +4,7 @@
 const User = require("../../models/User");
 const List = require("../../models/listStorage");
 const Menu = require("../../models/menuStorage");
-// const BasketStorage = require("../../models/basketStorage");
+const BasketStorage = require("../../models/basketStorage");
 const Basket = require("../../models/Basket");
 
 //
@@ -108,7 +108,7 @@ const output = { //페이지를 렌더링 해서 보여주는 호출을 묶음
         const seq = req.query.seq;
         console.log(seq);
         
-        const order = new Basket();
+        const order = new BasketStorage();
         const response = await order.delete(seq);
         
         return res.json(response);
@@ -202,7 +202,7 @@ const process = {
 
     cook : async (req, res) => {
         //console.log(req.body[0].name+" fasfsdf");
-        const order = new Basket(req.body);
+        const order = new BasketStorage(req.body);
         const response = await order.insertOrder();
        
         return res.json(response);
