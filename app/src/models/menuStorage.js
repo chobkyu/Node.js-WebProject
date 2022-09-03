@@ -7,11 +7,7 @@ class Menu{
         this.body = body;
     }
     
-    getMenu(category){
-        console.log(category+"는 뭘까요");
-        if(category===undefined){
-            category="한식";
-        }
+    static async getMenu(category){
         return new Promise((resolve, reject)=>{
             const query = "select * from menu where category = ?";
             db.query(query,[category],(err, rows)=>{
@@ -19,55 +15,39 @@ class Menu{
                     reject("${err}");
                     console.log("menustorage에서 오류");
                 }
-                //console.log(rows);
                 resolve(rows);
             });
         });
     }
 
-    async menu(){
-        const menuAdd = this.body;
-        try{
-            return new Promise((resolve, reject) => {
-                const query = "insert into menu(menu,price,category) values(?,?,?);";
-                db.query(query,[menuAdd.menu,menuAdd.price,menuAdd.category], (err) =>{
-                    if(err) reject("${err}");
-                    resolve({success : true});
-                })
-            });
-        }catch (err) {
-            return {success : false, msg : err};
-        }
+    static async menu(menuAdd){
+        return new Promise((resolve, reject) => {
+            const query = "insert into menu(menu,price,category) values(?,?,?);";
+            db.query(query,[menuAdd.menu,menuAdd.price,menuAdd.category], (err) =>{
+                if(err) reject("${err}");
+                resolve({success : true});
+            })
+        });
     }
 
-    async deleteMenu(){
-        const deleteMenu = this.body;
-        try{
-            return new Promise((resolve, reject) => {
-                const query = "delete from menu where menu=?;";
-                db.query(query, deleteMenu.menu, (err) =>{
-                    if(err) reject("${err}");
-                    resolve({success : true});
-                })
-            });
-        }catch (err) {
-            return {success : false, msg : err};
-        }
+    static async deleteMenu(deleteMenu){
+        return new Promise((resolve, reject) => {
+            const query = "delete from menu where menu=?;";
+            db.query(query, deleteMenu.menu, (err) =>{
+                if(err) reject("${err}");
+                resolve({success : true});
+            })
+        });
     }
 
-    async modifyMenu(){
-        const modifyMenu = this.body;
-        try{
-            return new Promise((resolve, reject) => {
-                const query = "update menu set menu=?, price=?, category=? where menu=?;";
-                db.query(query,[modifyMenu.newMenu, modifyMenu.price, modifyMenu.category, modifyMenu.menu], (err) =>{
-                    if(err) reject("${err}");
-                    resolve({success : true});
-                })
-            });
-        }catch (err) {
-            return {success : false, msg : err};
-        }
+    static async modifyMenu(modifyMenu){
+        return new Promise((resolve, reject) => {
+            const query = "update menu set menu=?, price=?, category=? where menu=?;";
+            db.query(query,[modifyMenu.newMenu, modifyMenu.price, modifyMenu.category, modifyMenu.menu], (err) =>{
+                if(err) reject("${err}");
+                resolve({success : true});
+            })
+        });
     }
 }
 

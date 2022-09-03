@@ -2,8 +2,8 @@
 
 //const UserStorage = require("../../models/UserStorage");
 const User = require("../../models/User");
-const List = require("../../models/listStorage");
-const Menu = require("../../models/menuStorage");
+const List = require("../../models/List");
+const Menu = require("../../models/Menu");
 const Basket = require("../../models/Basket");
 
 //

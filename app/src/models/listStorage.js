@@ -5,10 +5,7 @@ const table ='member';
 
 
 class ListStorage {
-
-    
-
-    getMemberInfo(){  //promise는 시간이 오래걸리는 구문을 실행시킬 때 사용
+    static async getMemberInfo(){  //promise는 시간이 오래걸리는 구문을 실행시킬 때 사용
         return new Promise((resolve, reject) => {
             const query = "SELECT * FROM member;";
             db.query(query, (err, rows)=>{
@@ -16,15 +13,12 @@ class ListStorage {
                     reject("${err}");
                     console.log(rows+" ListStorage에서 에러");
                 }
-                
                 resolve(rows);
             });
-            
         });
-       
     }
 
-    getSearchMember(key){
+    static async getSearchMember(key){
         return new Promise((resolve, reject)=>{
             const query = "SELECT * FROM member where name = ?";
             db.query(query,[key],(err,rows)=>{
@@ -32,7 +26,6 @@ class ListStorage {
                     reject("${err}");
                     console.log(rows+" ListStorage의 getSearchMember에서 에러");
                 }
-                
                 resolve(rows);
             }) 
         });
